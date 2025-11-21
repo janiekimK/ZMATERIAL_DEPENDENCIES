@@ -3,17 +3,16 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <PROGDIR>
-    <NAME>ZKABJ1</NAME>
-    <SUBC>1</SUBC>
+    <NAME>ZMM_MATERIAL_DEPENDENCIES_TOP</NAME>
+    <SUBC>I</SUBC>
     <RLOAD>D</RLOAD>
-    <FIXPT>X</FIXPT>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>Programm ZKABJ1</ENTRY>
-     <LENGTH>15</LENGTH>
+     <ENTRY>Include ZMM_MATERIAL_DEPENDENCIES_TOP</ENTRY>
+     <LENGTH>37</LENGTH>
     </item>
    </TPOOL>
   </asx:values>
