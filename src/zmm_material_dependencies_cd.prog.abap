@@ -3,16 +3,21 @@
 *&---------------------------------------------------------------------*
 CLASS lcl_select_missing_material DEFINITION.
   PUBLIC SECTION.
+
     METHODS:
       get_coop_week
         IMPORTING
           i_hc   TYPE wrf_struc_node
+          i_date TYPE sy-datum
         EXPORTING
           e_week TYPE char6
           e_year TYPE char4,
+
       get_lbs_from_vst,
       check_lbs,
-      compare_material.
+      compare_material,
+      get_hc16_articles.
+
   PRIVATE SECTION.
 
 ENDCLASS.

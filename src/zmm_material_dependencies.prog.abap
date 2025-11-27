@@ -9,26 +9,25 @@ INCLUDE zmm_material_dependencies_top.
 INCLUDE zmm_material_dependencies_cd.
 INCLUDE zmm_material_dependencies_ci.
 
-
-DATA:
-      l_hc                    TYPE wrf_struc_node,
-      lv_week                 TYPE char6,
-      lv_year                 TYPE char4.
-
-
 START-OF-SELECTION.
 
   CREATE OBJECT select_missing_material.
   CREATE OBJECT display_missing_material.
 
-  " 2) HC setzen, z.B. HC16
-  l_hc = '16'.
+  g_hc = '010116'.
 
-  " 3) Coop-Woche ermitteln
   select_missing_material->get_coop_week(
   EXPORTING
-    i_hc   = l_hc
+    i_hc   = g_hc
+    i_date = s_dat-low
   IMPORTING
-    e_week = lv_week
-    e_year = lv_year
-    ).
+    e_week = g_week
+    e_year = g_year ).
+
+  select_missing_material->get_lbs_from_vst( ).
+
+  IF g_missing_material IS INITIAL.
+    MESSAGE 'Keine fehlenden HC16 Artikel gefunden.' TYPE 'E'.
+  ELSE.
+    display_missing_material->display_salv( ).
+  ENDIF.
